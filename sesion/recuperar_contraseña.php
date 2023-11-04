@@ -3,6 +3,7 @@ include('../mostrar/config/config.php');
 $email = $_POST['correo'];
 
 
+
 try {
     $conn = new PDO("mysql:host=$servidor;dbname=$basededatos", $usuario, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
