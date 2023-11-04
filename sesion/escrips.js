@@ -169,12 +169,22 @@ if(usuario!= "" && pass!= ""){
     }
 }
 
-
-
-
+function enviar_correo(email, subject){
+    $.ajax({
+        type: "post",
+        url: "../enviar_prueba/enviar.php",
+        data: {
+        email: email,
+        subject: subject
+        },
+        success: function(respuesta) {
+        console.log(respuesta)
+        }
+    })
+}
 
 function recuperar_usuario(e){
-    e.preventDefault ();
+    e.preventDefault();
     const documento= document.getElementById("identidad").value
     const pass= document.getElementById("pas").value
 if(documento!= "" && pass!= ""){
@@ -186,9 +196,52 @@ if(documento!= "" && pass!= ""){
         pass: pass
         },
         success: function(respuesta) {
-            if(respuesta==1){
+            if(respuesta!=2){
+                const data =JSON.parse(respuesta);
+                enviar_correo(data.correo, `<!DOCTYPE html>
+                <html>
+                <head>
+                    <style>
+                        /* Estilos CSS aquí */
+                        body {
+                            font-family: Arial, sans-serif;
+                        }
+                        .container {
+                            max-width: 600px;
+                            margin: 0 auto;
+                            padding: 20px;
+                            background-color: #f4f4f4;
+                        }
+                        h1 {
+                            color: #333;
+                        }
+                        p {
+                            color: #666;
+                        }
+                        .logo {
+                            text-align: center;
+                        }
+                        .logo img {
+                            max-width: 200px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <div class="logo">
+                            <img src="https://i.postimg.cc/nrGQ8SSX/logo.png" alt="Logo de la Empresa">
+                        </div>
+                        <h1>Nombre de Usuario Olvidado</h1>
+                        <p>Hola ${data.nombre},</p>
+                        <p>Aquí está tu nombre de usuario:</p>
+                        <p>${data.usuario}</p>
+                        <p>Si no solicitaste esta información, ignora este mensaje.</p>
+                        <p>Gracias, elohim </p>
+                    </div>
+                </body>
+                </html>`)
                 Swal.fire({
-                    title: 'te enviamos la informacio al correo ad***@**im.com ',
+                    title: 'te enviamos la informacio al correo' + data.correo,
                     showClass: {
                     popup: 'animate__animated animate__fadeInDown'
                     },

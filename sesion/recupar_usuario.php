@@ -21,7 +21,8 @@ try {
 
     // Verificar si se encontraron registros que coincidan con las credenciales
     if ($stmt->rowCount() == 1) {
-        echo"1";
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($usuario);
     } else {
         echo"2";
     }
