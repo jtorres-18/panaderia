@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'asunto';
+        $mail->Subject = 'Recuperación de Credenciales';
         $mail->Body   =  $cuerpo;
 
         $mail->send();

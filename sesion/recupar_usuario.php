@@ -1,7 +1,4 @@
 
-
-
-
 <?php
 include('../mostrar/config/config.php');
 $documento = $_POST['documento'];

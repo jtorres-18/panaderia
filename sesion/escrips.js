@@ -241,7 +241,7 @@ if(documento!= "" && pass!= ""){
                 </body>
                 </html>`)
                 Swal.fire({
-                    title: 'te enviamos la informacio al correo' + data.correo,
+                    title: 'te enviamos la informacio al correo ' + data.correo,
                     showClass: {
                     popup: 'animate__animated animate__fadeInDown'
                     },
@@ -276,8 +276,38 @@ if(documento!= "" && pass!= ""){
 }
 
 
-
-
+function nueva_contra(e){
+    e.preventDefault ();
+    const id= document.getElementById("id").value
+    const new_pass= document.getElementById("new_passs").value
+    if(new_pass!= ""){
+    $.ajax({
+        type: "post",
+        url: "consulta.php",
+        data: {
+        new_passs: new_pass,
+        id: id
+        },
+        success: function(respuesta) {
+                if(respuesta==1){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'contraseña restaurada con exito',
+                        showConfirmButton: false,
+                        timer: 2500
+                })
+                }    
+        },
+    })
+    }else{
+        Swal.fire({
+                    icon: 'error',
+                    title: 'uno o mas campos estan vacios',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+    }
+}
 
 function recuperar_pass(e){
     e.preventDefault ();
@@ -291,9 +321,63 @@ if(email!= ""){
             correo: email,
             },
             success: function(respuesta) {
-                if(respuesta==1){
+                if(respuesta!=2){
+                    const data =JSON.parse(respuesta);
+                    enviar_correo(data.correo, `<!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Recuperacion de Contraseña</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                            }
+                            .container {
+                                max-width: 600px;
+                                margin: 0 auto;
+                                padding: 20px;
+                            }
+                            .header {
+                                text-align: center;
+                            }
+                            .header img {
+                                max-width: 150px;
+                                height: auto;
+                            }
+                            .content {
+                                background-color: #f9f9f9;
+                                padding: 20px;
+                                border-radius: 5px;
+                            }
+                            .button {
+                                background-color: #4CAF50;
+                                color: white;
+                                padding: 10px 20px;
+                                text-decoration: none;
+                                border-radius: 5px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <div class="header">
+                                <img src="https://i.postimg.cc/nrGQ8SSX/logo.png" alt="Logo de la Empresa">
+                                <h2>Recuperación de Contraseña</h2>
+                            </div>
+                            <div class="content">
+                                <p>¡Hola ${data.nombre}!</p>
+                                <p>Recibes este correo porque solicitaste restablecer tu contraseña. Para continuar con el proceso, haz clic en el siguiente enlace:</p>
+                                <center><p><a href="http://localhost/elohim/sesion/contra.php?id=${data.id}" class="button">Restablecer Contraseña</a></p></center>
+                                <p>Si no solicitaste restablecer tu contraseña, puedes ignorar este mensaje.</p>
+                                <p>Por favor, ten en cuenta que este enlace es válido por un tiempo limitado.</p>
+                                <p>Si tienes algún problema o pregunta, no dudes en ponerte en contacto con nuestro soporte.</p>
+                                <p>¡Gracias!</p>
+                            </div>
+                        </div>
+                    </body>
+                    </html>
+                    `);
                     Swal.fire({
-                        title: 'te enviamos la informacio al correo ad***@**im.com ',
+                        title: 'te enviamos la informacio al correo ' + data.correo,
                         showClass: {
                         popup: 'animate__animated animate__fadeInDown'
                         },
