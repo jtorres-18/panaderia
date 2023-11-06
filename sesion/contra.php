@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<div class="contenedor-formulario contra ">
+<div class="contenedor-formulario contra">
     <div class="informacion"> 
         <div class="info-datos">
             <h2> Bienvenido nuevamente</h2>
@@ -41,7 +41,6 @@
         </div>
     </div>
 </div>
-
 <script src="escrips.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

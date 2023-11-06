@@ -50,7 +50,6 @@ function validarEmail(email) {
 }
 
 
-
 function registrarse(e){
     e.preventDefault ();
     const nombre= document.getElementById("nombre").value
@@ -80,6 +79,11 @@ function registrarse(e){
                         timer: 2500
                 })
                 
+                document.getElementById("form-regitro").reset();
+
+
+
+
                 }
                 if(respuesta==2){
                 Swal.fire({
@@ -125,7 +129,8 @@ function registrarse(e){
                     timer: 3000
                 })
     }
-}
+}   
+
 
 
 function logueo(e){

@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
     $documento = $_POST["documento"];
     $email = $_POST["email"];
-    $usuario = $_POST["usuario"];
+    $usuari = $_POST["usuario"];
     $pass = $_POST["pass"];
     $tipo_usuario= 1 ;
 
@@ -20,9 +20,9 @@ $stmtEmail->bindParam(':email', $email);
 $stmtEmail->execute();
 
 // Consulta para verificar si el usuario ya existe en la base de datos
-$queryUsuario = "SELECT usuario FROM usuarios WHERE usuario = :usuario";
+$queryUsuario = "SELECT usuario FROM usuarios WHERE usuario = :usuari";
 $stmtUsuario = $conn->prepare($queryUsuario);
-$stmtUsuario->bindParam(':usuario', $usuario);
+$stmtUsuario->bindParam(':usuari', $usuari);
 $stmtUsuario->execute();
 
 // Consulta para verificar si el documento ya existe en la base de datos
@@ -40,13 +40,13 @@ if ($stmtEmail->rowCount() > 0 || $stmtUsuario->rowCount() > 0 || $stmtDocumento
         echo '3';
     }
 } else {
-    $sql = "INSERT INTO usuarios (nombre, documento, correo, usuario, contraseña, tipo_usuario) VALUES (:nombre, :documento, :email, :usuario,  :pass, :tipo_usuario)";
+    $sql = "INSERT INTO usuarios (nombre, documento, correo, usuario, contraseña, tipo_usuario) VALUES (:nombre, :documento, :email, :usuari,  :pass, :tipo_usuario)";
     $stmt = $conn->prepare($sql);
 
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':documento', $documento);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':usuario', $usuario);
+    $stmt->bindParam(':usuari', $usuari);
     $stmt->bindParam(':pass', $pass); // Cambiado de ':contraseña' a ':pass'
     $stmt->bindParam(':tipo_usuario',  $tipo_usuario);
     $stmt->execute();

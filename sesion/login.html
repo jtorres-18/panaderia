@@ -35,20 +35,23 @@
                 <form  class="form" id="form-regitro">
                     <label>
                         <i class='bx bx-user-circle' ></i>
-                        <input type="text" name="nombre" placeholder="Nombre" id="nombre" required>
+                        <input type="text" name="nombre" placeholder="Nombre" id="nombre" required autofocus>
                     </label>
                     <label>
                         <i class='bx bx-user-circle' ></i>
                         <input type="text" name="documento" placeholder="documento" id="documento" oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10).replace(/[^0-9]/g, ''); else this.value = this.value.replace(/[^0-9]/g, '');" required>
                     </label>
+                    <div id="respuesta"> </div>
                     <label >
                         <i class='bx bx-envelope' ></i>
                         <input type="email" name="email" placeholder="correo electronico" id="email" required>
                     </label>
+                    <div id="respuesta_correo"> </div>
                     <label>
                         <i class='bx bx-user-circle' ></i>
                         <input type="text" name="usuario" placeholder="usuario" id="usuario" required>
                     </label>
+                    <div id="respuesta_usuario"> </div>
                     <label>
                         <i class='bx bx-lock-alt' ></i>
                         <input type="password" name="pass" placeholder="contraseña" id="pass" required>
@@ -85,7 +88,7 @@
             <form  class="form" id="form-inicar">
                 <label >
                     <i class='bx bx-envelope' ></i>
-                    <input type="text" name="usuario" placeholder="usuario" id="user" required>
+                    <input type="text" name="usuario" placeholder="usuario" id="user" required autofocus>
                 </label>
                 <label>
                     <i class='bx bx-lock-alt' ></i>
@@ -117,7 +120,7 @@
             <form  class="form" id="form-recuperar_usuario">
                 <label >
                     <i class='bx bx-envelope' ></i>
-                    <input type="text" name="documento" placeholder="documento" id="identidad" oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10).replace(/[^0-9]/g, ''); else this.value = this.value.replace(/[^0-9]/g, '');" required>
+                    <input type="text" name="documento" placeholder="documento" id="identidad" autofocus oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10).replace(/[^0-9]/g, ''); else this.value = this.value.replace(/[^0-9]/g, '');" required>
                 </label>
                 <label>
                     <i class='bx bx-lock-alt' ></i>
@@ -145,7 +148,7 @@
             <form  class="form" id="form-recuperar_contraseña">
             <label >
                 <i class='bx bx-envelope' ></i>
-                <input type="email" name="email" placeholder="correo electronico" id="correo" required>
+                <input type="email" name="email" placeholder="correo electronico" id="correo" required autofocus>
             </label>
                 <input type="button" onclick="regresarAlInicio()" value="regresar">
                 <input type="button" onclick=" recuperar_pass(event)" value="ingresar">
@@ -158,6 +161,7 @@
 
 
 <script src="escrips.js"></script>
+<script src="validar_formulario/validar_for.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
