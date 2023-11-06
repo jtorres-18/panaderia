@@ -1,3 +1,9 @@
+<?php
+                                        if (session_status() == PHP_SESSION_NONE) {
+											session_start();
+										}
+                                        if(isset($_SESSION['entro']) && $_SESSION['entro']==true ){
+                                    ?> 
 <!doctype html>
 <html lang="en">
 <head>
@@ -368,3 +374,10 @@
 	<?php include('../mostrar/includes/js.html') ?>
 </body>
 </html>
+<?php
+                                                }else{
+                                                    ?>
+<script>  window.location.href = "../sesion/login.html" ; </script>
+													<?php
+                                                }
+                                    ?>

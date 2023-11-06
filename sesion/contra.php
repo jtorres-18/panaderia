@@ -35,13 +35,15 @@
                 <i class='bx bx-lock-alt' ></i>
                 <input type="password" name="pass" placeholder="confirmar contraseña" id="new_passs" required>
             </label>
+            <div id="respuesta"> </div>
             <input type="hidden" id="id" value="<?php echo $_GET['id']?>">
-            <input type="button" onclick=" nueva_contra(event)" value="ingresar">
+            <input type="button" onclick=" nueva_contra(event)" value="ingresar" id="btn_ingresar">
         </form>
         </div>
     </div>
 </div>
 <script src="escrips.js"></script>
+<script src="validar_formulario/validar_contra.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

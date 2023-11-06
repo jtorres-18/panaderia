@@ -39,7 +39,7 @@
                     </label>
                     <label>
                         <i class='bx bx-user-circle' ></i>
-                        <input type="text" name="documento" placeholder="documento" id="documento" oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10).replace(/[^0-9]/g, ''); else this.value = this.value.replace(/[^0-9]/g, '');" required>
+                        <input type="text" name="documento" onkeyup="validarMinimo_documento(8)"  placeholder="documento" id="documento" oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10).replace(/[^0-9]/g, ''); else this.value = this.value.replace(/[^0-9]/g, '');" required>
                     </label>
                     <div id="respuesta"> </div>
                     <label >
@@ -49,7 +49,7 @@
                     <div id="respuesta_correo"> </div>
                     <label>
                         <i class='bx bx-user-circle' ></i>
-                        <input type="text" name="usuario" placeholder="usuario" id="usuario" required>
+                        <input type="text" name="usuario" onkeyup="validarMinimo(5)" placeholder="usuario" id="usuario" required>
                     </label>
                     <div id="respuesta_usuario"> </div>
                     <label>

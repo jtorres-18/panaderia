@@ -35,7 +35,9 @@ if(longitudCedula >= 5){
 
 
 $("#email").on("keyup", function() {
+            var longitudemail = $("#email").val().length; //CUENTO LONGITUD
             var email = $("#email").val(); //CAPTURANDO EL VALOR DE INPUT CON ID CEDULA
+            if(longitudemail >= 5){
                 $.ajax({
                     url: 'validar_formulario/validarCorreo.php',
                     type: "post",
@@ -62,12 +64,14 @@ $("#email").on("keyup", function() {
                             }
                             }
                         });
-                        
+                    }
                     });
 
 
                     $("#usuario").on("keyup", function() {
+                        var longitudusuario = $("#usuario").val().length; //CUENTO LONGITUD
                         var usuario = $("#usuario").val(); //CAPTURANDO EL VALOR DE INPUT CON ID usuario
+                        if(longitudusuario >=5){
                             $.ajax({
                                 url: 'validar_formulario/validar_usuario.php',
                                 type: "post",
@@ -93,7 +97,7 @@ $("#email").on("keyup", function() {
                                         }
                                         }
                                     });
-                                    
+                                }
                                 });
                                 $("#entrar").click(function(e) {
                                     registrarse(e);
@@ -101,4 +105,26 @@ $("#email").on("keyup", function() {
 
     });
 
-    
+    function validarMinimo(minimoCaracteres) {
+        var inputCampo = document.getElementById("usuario");
+        var mensajeError = document.getElementById("respuesta_usuario");
+        if (inputCampo.value.length < minimoCaracteres) {
+            mensajeError.textContent = "Debes ingresar al menos " + minimoCaracteres + " caracteres.";
+            inputCampo.style.border = "1px solid red";
+        } else {
+            mensajeError.textContent = "";
+            inputCampo.style.border = "1px solid #ccc";
+        }
+    }
+    function validarMinimo_documento(minimoCaracteres) {
+        var inputCampo = document.getElementById("documento");
+        var mensajeError = document.getElementById("respuesta");
+        if (inputCampo.value.length < minimoCaracteres) {
+            mensajeError.textContent = "Debes ingresar al menos " + minimoCaracteres + " caracteres.";
+            inputCampo.style.border = "1px solid red";
+        } else {
+            mensajeError.textContent = "";
+            inputCampo.style.border = "1px solid #ccc";
+        }
+    }
+
