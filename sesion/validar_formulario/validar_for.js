@@ -99,9 +99,6 @@ $("#email").on("keyup", function() {
                                     });
                                 }
                                 });
-                                $("#entrar").click(function(e) {
-                                    registrarse(e);
-                                });
 
     });
 

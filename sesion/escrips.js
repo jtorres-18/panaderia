@@ -301,6 +301,7 @@ function nueva_contra(e){
                         showConfirmButton: false,
                         timer: 2500
                 })
+                
                 }    
         },
     })

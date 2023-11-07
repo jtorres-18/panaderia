@@ -37,10 +37,10 @@ $result = $con->query($sql);
 if ($result->num_rows > 0) {
     echo "<h2>Lista de Productos</h2>";
     echo "<table border='1'>";
-    echo "<tr><th>ID</th><th>Nombre del Producto</th><th>Precio</th><th>Descripción del Producto</th></tr>";
+    echo "<tr><th>ID</th><th>Código</th><th>Nombre del Producto</th><th>Precio</th><th>Descripción del Producto</th></tr>";
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["nameProd"] . "</td><td>" . $row["precio"] . "</td><td>" . $row["description_Prod"] . "</td></tr>";
+        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["codigo"] . "</td><td>" . $row["nameProd"] . "</td><td>" . $row["precio"] . "</td><td>" . $row["description_Prod"] . "</td></tr>";
     }
 
     echo "</table>";
