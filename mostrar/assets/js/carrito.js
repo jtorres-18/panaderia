@@ -173,17 +173,7 @@ function formatearCantidad(cantidad) {
 /**
  * Funcion que recibe la solicitud para gestionar el pedido
  */
-const solictarPedido = (codPedido) => {
-  const whatsappAPI = "https://api.whatsapp.com/send?phone=";
-  const phoneNumber = "+57xxxxxxxxxx";
 
-  const link = `http://localhost/tienda-online/pdfPedido.php?codPedido=${codPedido}`;
-  const message = `¡Hola! Me interesa el siguiente pedido: ${link}`;
-  const whatsappURL = `${whatsappAPI}${phoneNumber}&text=${message}`;
-
-  // Abrir la conversación de WhatsApp en una nueva ventana o pestaña
-  window.open(whatsappURL, "_blank");
-};
 
 /**
  * Funcion para limpiar todo mi carrito

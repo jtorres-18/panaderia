@@ -115,10 +115,6 @@ a:focus {
 	overflow:auto;
 }
 
-
-
-
-
 /* ---------------------------------------------------
     SIDEBAR STYLE start
 ----------------------------------------------------- */
@@ -215,7 +211,7 @@ a:focus {
 	line-height: 30px;
 	border-radius:5px;
     font-size: 15px;
-	position:relative;'
+	position:relative;
     font-weight: 400;
     display: block;
 }
@@ -233,27 +229,18 @@ a:focus {
     margin-left: 10px;
 }
 
-
-
-
-
 /* ---------------------------------------------------
    sidebar end
 ----------------------------------------------------- */
-
-
-
 
 /*=======================================================
    main-content navbar-design start
    ===============================================*/
 
-
-
 #content {
 	position: relative;
     transition: all 0.3s;
-	background-color: #EEEEEE;
+	background-color: #ded6c0;
 }
 
 .top-navbar{
@@ -267,12 +254,11 @@ a:focus {
 	padding:10px 20px 0px 20px;
 	position: relative;
     width: 100%;
+    background-color: #ded6c08d;
 }
 
-
-
 .navbar{
-    background-color: #2196F3;
+    background-color: #d03b40;
     color: #FFFFFF;
 }
 
@@ -292,7 +278,7 @@ a:focus {
 	border-radius:50%;
 	width:45px;
 	height:45px;
-	text-align:center;
+	text-align:right;
 	line-height:45px;
 	margin-right:20px;
 	border:none;
@@ -301,11 +287,10 @@ a:focus {
 }
 
 #sidebarCollapse span {
-    margin: 9px;
+    margin: 5.7px;
+    margin-top: 9px;
     padding: 0px;
 }
-
-
 
 .navbar-nav > li.active{
    color: #FFFFFF;
@@ -317,9 +302,8 @@ a:focus {
     color: #FFFFFF;
 }
 
-
 .navbar .notification {
-	 position: absolute;
+	position: absolute;
     top: 5px;
     right: 10px;
 	display: block;
@@ -328,20 +312,18 @@ a:focus {
     font-size: 10px;
     background: #d9534f;
     min-width: 15px;
-	 text-align: center;
+	text-align: center;
     padding: 1px 5px;
     height: 15px;
     border-radius: 2px;
     line-height: 14px;
 }
 
-
- .navbar-nav > li.show .dropdown-menu {
+.navbar-nav > li.show .dropdown-menu {
     transform: translate3d(0, 0, 0);
 	opacity:1;
 	visibility:visible;
 }
-
 
 .dropdown-menu li > a {
     font-size: 13px;
@@ -375,6 +357,8 @@ a:focus {
    ===============================================*/
 
 
+
+
 /*=======================================================
    main-content inner design like card start
    ===============================================*/
@@ -385,19 +369,22 @@ a:focus {
 }
 
 .card {
-    border-radius: 0px!important;
+    border-radius: 5px!important;
+    -webkit-border-radius: 5px!important;
+    -moz-border-radius: 5px!important;
+    -ms-border-radius: 5px!important;
+    -o-border-radius: 5px!important;
 }
 
 .card {
     display: inline-block;
     position: relative;
-	border:none!important;
+    border: 1px solid #d2d2d3;
     width: 100%;
     margin:15px 0;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
-    border-radius: 6px;
     color: rgba(0,0,0, 0.87);
     background: #fff;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 
 .card-stats .card-header {
@@ -519,8 +506,6 @@ a:focus {
     border-left: 1px solid #ccc;
 }
 
-
-
 .streamline .sl-item:before {
     content: '';
     position: absolute;
@@ -534,7 +519,6 @@ a:focus {
 .streamline .sl-primary:before, .streamline .sl-primary:last-child:after {
     background-color: #188ae2;
 }
-
 
 .streamline .sl-danger:before, .streamline .sl-danger:last-child:after {
     background-color: #ff5b5b;
@@ -556,8 +540,6 @@ a:focus {
     background-color: #f9c851;
 }
 
-
-
 .streamline .sl-danger {
     border-left-color: #ff5b5b;
 }
@@ -576,9 +558,12 @@ a:focus {
 	color:#333;
 }
 
-
 /*=======================================================
    main-content inner design like card end
+   ===============================================*/
+
+/*=======================================================
+   Taabla de productos
    ===============================================*/
 
 

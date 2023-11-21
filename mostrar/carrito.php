@@ -57,7 +57,7 @@
                                     while ($dataMiProd = mysqli_fetch_array($miCarrito)) { ?>
                                         <tr id="resp<?php echo $dataMiProd['tempId']; ?>">
                                             <td>
-                                                <img src="<?php echo $dataMiProd["foto1"]; ?>" alt="Foto_Producto" style="width: 100px;">
+                                                <img src="../dash_board/img/<?php echo $dataMiProd["foto1"]; ?>" alt="Foto_Producto" style="width: 50px;">
                                             </td>
                                             <td><?php echo $dataMiProd["nameProd"]; ?></td>
                                             <td>

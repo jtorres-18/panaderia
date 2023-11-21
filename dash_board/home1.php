@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="website icon" type="png" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
 	<title>cms dashboard
 	</title>
 	<!-- Bootstrap CSS -->
-	<link rel="icon" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!----css3---->
 	<link rel="stylesheet" href="css/custom.css">
@@ -23,13 +23,37 @@
 	<div class="wrapper">
 		<div class="body-overlay"></div>
 		<!-- Sidebar  -->
-		<nav id="sidebar">
+		<nav id="sidebar" class="active">
 			<div class="sidebar-header">
-				<h3><img src="https://i.postimg.cc/nrGQ8SSX/logo.png" class="img-fluid" /><span>Vishweb design</span></h3>
+				<h3><img src="https://i.postimg.cc/nrGQ8SSX/logo.png" class="img-fluid" /><span>ELOHIM</span></h3>
 			</div>
 			<ul class="list-unstyled components">
 				<li class="active">
-					<a href="index.php" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+					<a href="index.php" class="dashboard"><i class="material-icons">dashboard</i><span>Inicio</span></a>
+				</li>
+				<li class="dropdown">
+					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">fact_check</i><span>Inventario</span></a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
+						<li>
+							<a href="listar_productos.php"><i class="material-icons">check</i>Productos</a>
+						</li>
+						<li>
+							<a href="agregar_producto.php"><i class="material-icons">add</i>Agregar</a>
+						</li>
+					</ul>
+				</li>
+				<!--<li class="sidebar-list-item">
+					<a href="#"class="bxs-dashboard">
+					<i class="material-icons">add_shopping_cart</i><span> Ordenes</span></a>
+				</li>-->
+				<li class="sidebar-list-item">
+					<a href="buscar_ventas.php"class="bxs-dashboard">
+					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
+				</li>
+				<li class="sidebar-list-item">
+					<a href="#"class="bxs-dashboard">
+					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">
 					<li class="dropdown d-lg-none d-md-block d-xl-none d-sm-block">
@@ -40,7 +64,7 @@
 								<a href="#">You have 5 new messages</a>
 							</li>
 							<li>
-								<a href="#">You're now friend with Mike</a>
+								<a href="#">tonot</a>
 							</li>
 							<li>
 								<a href="#">Wish Mary on her birthday!</a>
@@ -50,31 +74,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="d-lg-none d-md-block d-xl-none d-sm-block">
-						<a href="#"><i class="material-icons">apps</i><span>apps</span></a>
-					</li>
-					<li class="d-lg-none d-md-block d-xl-none d-sm-block">
-						<a href="#"><i class="material-icons">person</i><span>user</span></a>
-					</li>
-					<li class="d-lg-none d-md-block d-xl-none d-sm-block">
-						<a href="#"><i class="material-icons">settings</i><span>setting</span></a>
-					</li>
 				</div>
-				<li class="dropdown">
-					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">aspect_ratio</i><span>Layouts</span></a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li>
-							<a href="#">Home 1</a>
-						</li>
-						<li>
-							<a href="#">Home 2</a>
-						</li>
-						<li>
-							<a href="#">Home 3</a>
-						</li>
-					</ul>
-				</li>
 				<li class="dropdown">
 					<a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">apps</i><span>widgets</span></a>
@@ -90,17 +90,19 @@
 						</li>
 					</ul>
 				</li>
+				<li class="d-lg-none d-md-block d-xl-none d-sm-block">
+					<a href="#"><i class="material-icons">logout</i><span>Cerrar Sesion</span></a>
+				</li>
 			</ul>
 		</nav>
 		<!-- Page Content  -->
-		<div id="content">
+		<div id="content" class="active">
 			<div class="top-navbar">
 				<nav class="navbar navbar-expand-lg">
 					<div class="container-fluid">
-					    <button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
-							<span class="material-icons">arrow_back_ios</span>
+						<button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
+							<span class="material-icons">list</span>
 						</button>
-						<a class="navbar-brand" href="#"> Blank Pages </a>
 						<button class="d-inline-block d-lg-none ml-auto more-button" type="button"
 							data-toggle="collapse" data-target="#navbarSupportedContent"
 							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,11 +133,11 @@
 								</li>
                                 <li class="dropdown nav-item">
 									<a href="#" class="nav-link" data-toggle="dropdown">
-										<span class="material-icons">person</span>
+										<span class="material-icons">logout</span>
 									</a>
 									<ul class="dropdown-menu">
 										<li>
-											<a href="../sesion/cerrar.php">Cerrar sesion</a>
+											<a href="#">Cerrar sesion</a>
 										</li>
 									</ul>
 								</li>
@@ -146,18 +148,21 @@
 			</div>
 			<div class="main-content">
 				<div class="row">
-
-		
-		
 				</div>
-				
 					<div class="col-12">
 						<div class="card" style="min-height: 485px">
 							<div class="card-header card-header-text">
 								<h4 class="card-title">Card</h4>
 							</div>
 							<div class="card-content">
-								
+							
+
+
+
+
+
+
+
 							</div>
 						</div>
 					</div>
@@ -184,6 +189,6 @@
 
 		});
     </script>
-	<center> <?php include('../mostrar/includes/footer.html') ?> </center>
+	<center><?php include('../mostrar/includes/footer.html') ?></center>
 </body>
 </html>

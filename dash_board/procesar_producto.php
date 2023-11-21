@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($_FILES["foto1"]["tmp_name"], $uploadDir . $foto1);
         
 
-        $sql = "INSERT INTO fotoproducts (products_id, foto1, foto2, foto3) VALUES ('$products_id', '$foto1')";
+        $sql = "INSERT INTO fotoproducts (products_id, foto1) VALUES ('$products_id', '$foto1')";
 
         if ($con->query($sql) === TRUE) {
             header("Location: listar_productos.php");

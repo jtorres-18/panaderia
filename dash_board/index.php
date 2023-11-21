@@ -1,9 +1,9 @@
 <?php
-                                        if (session_status() == PHP_SESSION_NONE) {
-											session_start();
-										}
-                                        if(isset($_SESSION['entro']) && $_SESSION['entro']==true ){
-                                    ?> 
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
+	if(isset($_SESSION['entro']) && $_SESSION['entro']==true ){
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,12 +11,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<title>cms dashboard
-	</title>
+	<link rel="website icon" type="png" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
+	<title>Admin dashboard</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!----css3---->
-	<link rel="icon" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
 	<link rel="stylesheet" href="css/custom.css">
 	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,18 +23,43 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 	<!--google material icon-->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	
 </head>
 <body>
 	<div class="wrapper">
 		<div class="body-overlay"></div>
 		<!-- Sidebar  -->
-		<nav id="sidebar">
+		<nav id="sidebar" class="active">
 			<div class="sidebar-header">
-				<h3><img src="https://i.postimg.cc/nrGQ8SSX/logo.png" class="img-fluid" /><span>elohim</span></h3>
+				<h3><img src="https://i.postimg.cc/nrGQ8SSX/logo.png" class="img-fluid" /><span>ELOHIM</span></h3>
 			</div>
 			<ul class="list-unstyled components">
 				<li class="active">
-					<a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+					<a href="index.php" class="dashboard"><i class="material-icons">dashboard</i><span>Inicio</span></a>
+				</li>
+				<li class="dropdown">
+					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">fact_check</i><span>Inventario</span></a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
+						<li>
+							<a href="listar_productos.php"><i class="material-icons">check</i>Productos</a>
+						</li>
+						<li>
+							<a href="agregar_producto.php"><i class="material-icons">add</i>Agregar</a>
+						</li>
+					</ul>
+				</li>
+				<!--<li class="sidebar-list-item">
+					<a href="#"class="bxs-dashboard">
+					<i class="material-icons">add_shopping_cart</i><span> Ordenes</span></a>
+				</li>-->
+				<li class="sidebar-list-item">
+					<a href="buscar_ventas.php"class="bxs-dashboard">
+					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
+				</li>
+				<li class="sidebar-list-item">
+					<a href="#"class="bxs-dashboard">
+					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">
 					<li class="dropdown d-lg-none d-md-block d-xl-none d-sm-block">
@@ -46,7 +70,7 @@
 								<a href="#">You have 5 new messages</a>
 							</li>
 							<li>
-								<a href="#">You're now friend with Mike</a>
+								<a href="#">tonot</a>
 							</li>
 							<li>
 								<a href="#">Wish Mary on her birthday!</a>
@@ -56,36 +80,10 @@
 							</li>
 						</ul>
 					</li>
-					
-
-					<li class="dropdown d-lg-none d-md-block d-xl-none d-sm-block">
-						<a href="#usuario" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-							<i class="material-icons">person</i><span> usuario</span></a>
-						<ul class="collapse list-unstyled menu" id="usuario">
-							<li>
-								<a href="../sesion/cerrar.php">cerrar session</a>
-							</li>
-						</ul>
-					</li>
 				</div>
 				<li class="dropdown">
-					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">aspect_ratio</i><span>Layouts</span></a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li>
-							<a href="../dash_board/home1.php">Home 1</a>
-						</li>
-						<li>
-							<a href="#">Home 2</a>
-						</li>
-						<li>
-							<a href="#">Home 3</a>
-						</li>
-					</ul>
-				</li>
-				<li class="dropdown">
 					<a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">apps</i><span>widgets</span></a>
+						<i class="material-icons">apps</i><span>Herramientas</span></a>
 					<ul class="collapse list-unstyled menu" id="pageSubmenu2">
 						<li>
 							<a href="#">Page 1</a>
@@ -98,17 +96,19 @@
 						</li>
 					</ul>
 				</li>
+				<li class="d-lg-none d-md-block d-xl-none d-sm-block">
+					<a href="../sesion/cerrar.php"><i class="material-icons">logout</i><span>Cerrar Sesion</span></a>
+				</li>
 			</ul>
 		</nav>
 		<!-- Page Content  -->
-		<div id="content">
+		<div id="content" class="active">
 			<div class="top-navbar">
 				<nav class="navbar navbar-expand-lg">
 					<div class="container-fluid">
-					    <button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
-							<span class="material-icons">arrow_back_ios</span>
+						<button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
+							<span class="material-icons">list</span>
 						</button>
-						<a class="navbar-brand" href="index.php"> Dashboard </a>
 						<button class="d-inline-block d-lg-none ml-auto more-button" type="button"
 							data-toggle="collapse" data-target="#navbarSupportedContent"
 							aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,14 +138,7 @@
 									</ul>
 								</li>
                                 <li class="dropdown nav-item">
-									<a href="../sesion/cerrar.php" class="nav-link" data-toggle="dropdown">
-										<span class="material-icons">person</span>
-									</a>
-									<ul class="dropdown-menu">
-										<li>
-											<a href="../sesion/cerrar.php">Cerrar sesion</a>
-										</li>
-									</ul>
+									<a href="../sesion/cerrar.php"><i class="material-icons">logout</i></a>
 								</li>
 							</ul>
 						</div>
@@ -162,13 +155,13 @@
 								</div>
 							</div>
 							<div class="card-content">
-								<p class="category"><strong>Visits</strong></p>
+								<p class="category"><strong>Ventas</strong></p>
 								<h3 class="card-title">70,340</h3>
 							</div>
 							<div class="card-footer">
 								<div class="stats">
 									<i class="material-icons text-info">info</i>
-									<a href="#pablo">See detailed report</a>
+									<a href="buscar_ventas.php">informe detallado</a>
 								</div>
 							</div>
 						</div>
@@ -203,12 +196,12 @@
 								</div>
 							</div>
 							<div class="card-content">
-								<p class="category"><strong>Revenue</strong></p>
-								<h3 class="card-title">$23,100</h3>
+								<p class="category"><strong>Ganacias</strong></p>
+								<h3 class="card-title">$2310</h3>
 							</div>
 							<div class="card-footer">
 								<div class="stats">
-									<i class="material-icons">date_range</i> Weekly sales
+									<i class="material-icons">date_range</i> Ventas Semanales
 								</div>
 							</div>
 						</div>
@@ -217,7 +210,6 @@
 						<div class="card card-stats">
 							<div class="card-header">
 								<div class="icon icon-info">
-
 									<span class="material-icons">
 										follow_the_signs
 									</span>
@@ -239,63 +231,50 @@
 					<div class="col-lg-7 col-md-12">
 						<div class="card" style="min-height: 485px">
 							<div class="card-header card-header-text">
-								<h4 class="card-title">Employees Stats</h4>
-								<p class="category">New employees on 15th December, 2016</p>
+								<h4 class="card-title">Ultimos pedidos</h4>
+								<p class="category">Ultimos pedidos | <span id="currentDate"></span>
+								</p>
+								<script>
+									const date = new Date();
+									const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+									const currentDate = date.toLocaleDateString('es-ES', options);
+		
+									document.getElementById("currentDate").innerText = currentDate;
+								</script>
 							</div>
 							<div class="card-content table-responsive">
 								<table class="table table-hover">
 									<thead class="text-primary">
 										<tr>
-											<th>ID</th>
-											<th>Name</th>
-											<th>Salary</th>
-											<th>Country</th>
+											<th>FACTURA</th>
+											<th>NOMBRE</th>
+											<th>VALOR TOTAL</th>
+											<th>METODO PAGO</th>
 										</tr>
 									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Bob Williams</td>
-											<td>$23,566</td>
-											<td>USA</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Mike Tyson</td>
-											<td>$10,200</td>
-											<td>Canada</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Tim Sebastian</td>
-											<td>$32,190</td>
-											<td>Netherlands</td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>Philip Morris</td>
-											<td>$31,123</td>
-											<td>Korea, South</td>
-										</tr>
-										<tr>
-											<td>5</td>
-											<td>Minerva Hooper</td>
-											<td>$23,789</td>
-											<td>South Africa</td>
-										</tr>
-										<tr>
-											<td>6</td>
-											<td>Hulk Hogan</td>
-											<td>$43,120</td>
-											<td>Netherlands</td>
-										</tr>
-										<tr>
-											<td>7</td>
-											<td>Angelina Jolie </td>
-											<td>$12,140</td>
-											<td>Australia</td>
-										</tr>
-									</tbody>
+									<?php
+									include("../mostrar/config/config.php");
+									$sql = "SELECT v.factura, v.total_venta, v.metodo_pago, v.id_cliente, us.nombre
+											FROM ventas v
+											JOIN usuarios us ON v.id_cliente = us.id
+											LIMIT 5";
+									$result = $con->query($sql);
+									if ($result->num_rows > 0) {
+										while($row = $result->fetch_assoc()) {
+											echo "<tr>
+													<td>" . $row["factura"]. "</td>
+													<td>" . $row["nombre"]. "</td>
+													<td>" . $row["total_venta"]. "</td>
+													<td>" . $row["metodo_pago"]. "</td>
+												</tr>";
+										}
+									} else {
+										echo "<tr><td colspan='4'>0 resultados</td></tr>";
+									}
+									echo "</tbody></table>";
+									// Cerrar conexión
+									$con->close();
+									?>
 								</table>
 							</div>
 						</div>
@@ -367,17 +346,15 @@
 			$('.more-button,.body-overlay').on('click', function () {
 				$('#sidebar,.body-overlay').toggleClass('show-nav');
 			});
-
 		});
     </script>
 	<center><?php include('../mostrar/includes/footer.html') ?></center>
-	<?php include('../mostrar/includes/js.html') ?>
 </body>
 </html>
 <?php
-                                                }else{
-                                                    ?>
-<script>  window.location.href = "../sesion/login.html" ; </script>
-													<?php
-                                                }
-                                    ?>
+	}else{
+?>
+		<script>  window.location.href = "../sesion/login.html" ; </script>
+		<?php
+	}
+?>

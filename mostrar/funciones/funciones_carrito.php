@@ -1,7 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 include('../config/config.php');
 // Establecer las cabeceras para indicar que la respuesta es en formato JSON
 header('Content-Type: application/json');
@@ -168,9 +166,10 @@ if (isset($_POST["accion"]) && $_POST["accion"] == "limpiarTodoElCarrito") {
     //session_unset();
 
     // Destruir la sesión
-    //session_destroy();
+   // session_destroy();
 
-    // Cerrar una variable de sesión específica
+    //Cerrar una variable de sesión específica
+    unset($_SESSION['tokenStoragel']);
 
     echo json_encode(['mensaje' => 1]);
 }

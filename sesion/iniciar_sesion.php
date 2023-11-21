@@ -1,37 +1,37 @@
 <?php
 include('../mostrar/config/config.php');
-$registrado = $_POST['usuario'];
-$pass = $_POST['pass']; // Contraseña proporcionada por el usuario
 
-try {
-    $conn = new PDO("mysql:host=$servidor;dbname=$basededatos", $usuario, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // Consulta SQL para verificar las credenciales del usuario
-    $sql = "SELECT * FROM usuarios WHERE usuario = :usuario AND contraseña = :pass";
-    $stmt = $conn->prepare($sql);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $registrado = $_POST['usuario'];
+    $pass = $_POST['pass']; // Contraseña proporcionada por el usuario
 
-    $stmt->bindParam(':usuario', $registrado);
-    $stmt->bindParam(':pass', $pass);
+    try {
+        $conn = new PDO("mysql:host=$servidor;dbname=$basededatos", $usuario, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt->execute();
+        // Consulta SQL para verificar las credenciales del usuario
+        $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
 
-    // Verificar si se encontraron registros que coincidan con las credenciales
-    if ($stmt->rowCount() == 1) {
-        // Inicio de sesión exitoso
-        session_start();
-        $_SESSION['usuario'] = $registrado; // Puedes almacenar información del usuario en la sesión si es necesario
-        $_SESSION['entro'] = true;
+        // Preparar y ejecutar la consulta usando PDO
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(array(':usuario' => $registrado));
+
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($usuario);
-    } else {
 
-        // Credenciales incorrectas
-        echo"2";
+        if ($usuario && password_verify($pass, $usuario['contraseña'])) {
+            session_start();
+            $_SESSION['usuario'] = $registrado;
+            $_SESSION['entro'] = true;
+            echo json_encode($usuario);
+        } else {
+            // Credenciales incorrectas
+            echo "2";
+        }
+    } catch (PDOException $e) {
+        echo "Error al iniciar sesión: " . $e->getMessage();
+    } finally {
+        // Cierra la conexión PDO correctamente
+        $conn = null;
     }
-} catch (PDOException $e) {
-    echo "Error al iniciar sesión: " . $e->getMessage();
 }
-
-// Cerrar la conexión PDO correctamente
-$conn = null;
 ?>

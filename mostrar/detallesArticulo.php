@@ -60,15 +60,15 @@
 										<ul>
 											
 											<li class="active hoverAnimationProduct">
-												<img  src="<?php echo $dataProduct["foto1"]; ?>" alt="" data-image="<?php echo $dataProduct["foto1"]; ?>">
+												<img  src="../dash_board/img/<?php echo $dataProduct["foto1"]; ?>" alt="" data-image="<?php echo $dataProduct["foto1"]; ?>">
 											</li>
 											
 										</ul>
 									</div>
 								</div>
-								<div class="col-lg-9 image_col order-lg-2 order-1">
-									<div class="single_product_image">
-										<div class="single_product_image_background" style="background-image:url(<?php echo $dataProduct["foto1"]; ?>)"></div>
+								<div class="col-lg-9 image_col order-lg-2 order-1 ">
+								<div class="single_product_image h-50 w-50">
+									<div class="single_product_image_background" style="background-image:url('../dash_board/img/<?php echo $dataProduct["foto1"]; ?>')"></div>
 									</div>
 								</div>
 							</div>

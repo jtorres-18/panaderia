@@ -4,7 +4,7 @@ $("#documento").on("keyup", function() {
 var documento = $("#documento").val(); //CAPTURANDO EL VALOR DE INPUT CON ID CEDULA
 var longitudCedula = $("#documento").val().length; //CUENTO LONGITUD
 //Valido la longitud 
-if(longitudCedula >= 5){
+if(longitudCedula >= 8){
         $.ajax({
             url: 'validar_formulario/validar_documento.php',
             type: "post",

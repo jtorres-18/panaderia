@@ -43,7 +43,7 @@
 						<ul class="navbar_user">
 							<li class="checkout">
 								<a href="carrito.php">
-									<img src="https://i.postimg.cc/nrGQ8SSX/logo.png" alt="dog" style="width: 20px;">
+									<img src="https://i.postimg.cc/nrGQ8SSX/logo.png" alt="carrito" style="width: 20px;">
 									<?php
 									echo iconoCarrito($con);
 									?>

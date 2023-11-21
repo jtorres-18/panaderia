@@ -37,7 +37,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="row align-items-center">
 				<div class="col-lg-12 text-center mt-5">
 					<div class="section_title">
@@ -53,9 +52,9 @@
 				<?php
 				while ($dataProduct = mysqli_fetch_array($resultadoProductos)) { ?>
 					<div class="col-6 col-md-3 mt-5 text-center Products">
-						<div class="card" style="max-height: 450px !important; min-height: 450px !important;">
+						<div class="card" style="max-height: 450px !important; min-height: 450px !important; margin-bottom: 20px;">
 							<div>
-								<img class="card-img-top text-center mt-4" src="<?php echo $dataProduct["foto1"]; ?>" alt="<?php echo $dataProduct['nameProd']; ?>" style="max-width: 200px;">
+								<img class="card-img-top text-center mt-4" src="../dash_board/img/<?php echo $dataProduct["foto1"]; ?>" alt="<?php echo $dataProduct['nameProd']; ?>" style="max-width: 200px;">
 							</div>
 							<div class=" card-body text-center">
 								<h5 class="card-title card_title"><?php echo $dataProduct['nameProd']; ?></h5>
@@ -77,16 +76,12 @@
 							</a>
 						</div>
 					</div>
-
 				<?php } ?>
 			</div>
-
 		</div>
-
-		<?php include('includes/footer.html'); ?>
 	</div>
+	<?php include('includes/footer.html'); ?>
 	<?php include('includes/js.html'); ?>
-
 </body>
 
 </html>

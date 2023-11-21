@@ -6,6 +6,21 @@ function generarNumeroFactura() {
 
 
 
+function clearCart() {
+    let dataString = `accion=limpiarTodoElCarrito`;
+    axios
+    .post(ruta, dataString)
+    .then(function (response) {
+        if (response.data.mensaje == 1) {
+        localStorage.removeItem("miProducto");
+        window.location.href = 'productos.php';
+        }
+    })
+    .catch(function (error) {
+        console.error("Error:", error);
+    });
+}
+
 function finalizar_compra(e){
     e.preventDefault ();
     const direccion = document.getElementById("direccion").value
@@ -29,16 +44,19 @@ function finalizar_compra(e){
         success: function(respuesta) {
             const data = JSON.parse(respuesta);
             obtener_detalle(data.id)
-              Swal.fire({
+            Swal.fire({
                     icon: 'success',
                     title: 'pedido realizado con exito',
                     showConfirmButton: false,
                     timer: 3000
                 })
-                $("#exampleModal").modal('hide');
+                setTimeout(function() {
+                    clearCart();
+                    $("#exampleModal").modal('hide');
                     $('body').removeClass('modal-open');
                     $('body').removeAttr('style');
                     modal.style.display = 'none';
+                }, 3000);
         }
         
     })

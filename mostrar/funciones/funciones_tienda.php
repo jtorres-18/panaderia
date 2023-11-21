@@ -1,7 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 include('config/config.php');
 
 /**
@@ -80,7 +78,7 @@ function validando_carrito()
                     </div>
                 </div>
                 <div class="col-lg-12 text-center mt-5 mb-5">
-                    <a href="productos.php" class="red_button btn_raza" style="padding: 5px 20px;">
+                    <a href="/elohim/mostrar/productos.php" class="red_button btn_raza" style="padding: 5px 20px;">
                     <i class="bi bi-arrow-left-circle"></i>  Volver a la Tienda</a>
                 </div>
             </div>';
