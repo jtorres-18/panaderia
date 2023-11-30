@@ -5,21 +5,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codigo  = $_POST["codigo"];
     $nameProd = $_POST["nameProd"];
     $precio = $_POST["precio"];
-    $description_Prod = $_POST["description_Prod"];
-
+    $description_Prod = $_POST["descripcion"];
+    $categoria = $_POST["categoria"];
+    $estado = 1;
     // Verificar si el código ya existe
     $checkQuery = "SELECT id FROM products WHERE codigo = '$codigo'";
     $checkResult = $con->query($checkQuery);
 
     if ($checkResult->num_rows > 0) {
-        echo "El código ya existe en la base de datos. Por favor, elija otro código.";
+
     } else {
         // Si el código no se encuentra, proceder con la inserción
-        $sql = "INSERT INTO products (codigo, nameProd, precio, description_Prod) VALUES ('$codigo', '$nameProd', $precio, '$description_Prod')";
+        $sql = "INSERT INTO products (codigo, nameProd, precio, description_Prod, categoria, estado) VALUES ('$codigo', '$nameProd', $precio, '$description_Prod', '$categoria', '$estado')";
 
         if ($con->query($sql) === TRUE) {
             $lastInsertedProductId = $con->insert_id;
-            echo "Producto agregado con éxito.";
         } else {
             echo "Error al agregar el producto: " . $con->error;
         }
@@ -36,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO fotoproducts (products_id, foto1) VALUES ('$products_id', '$foto1')";
 
         if ($con->query($sql) === TRUE) {
-            header("Location: listar_productos.php");
-            exit();
+            echo "1"; //exito
         } else {
             echo "Error al agregar el producto: " . $con->error;
         }

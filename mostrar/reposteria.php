@@ -33,44 +33,37 @@
 <main class="main-content">
 	<div class="super_container">
 	<header>
-			<input type="checkbox" id="check" class="toggle-menu">
+			<input type="checkbox" id="check">
 			<label for="check" class="contenedorh">
 				<i class="fas fa-bars" ></i>
 			</label>
-			<ul class="objetos">
-    <li>
-        <a onclick="mostrar();" href="../index.html">
-            <i id="carrito" class="fa-solid fa-home"></i>
-        </a>
-    </li>
-    <li>
-        <?php
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-            if(isset($_SESSION['entro']) && $_SESSION['entro']==true ){
-        ?>        
-                <a href="../sesion/cerrar.php" id="persona" ><i id="persona" class="material-icons">logout</i></a>    
-                <?php
-        }else{
-            ?>
-            <a href="../sesion/login.html" id="persona" >
-                <i id="persona" class="fa-solid fa-user user-icon"></i>
-            </a>
-            <?php
-        }
-        ?>
-    </li>
-    <li>
-        <a onclick="mostrar();" href="carrito.php">
-            <i id="carrito" class="fa-solid fa-basket-shopping"><?php echo iconoCarrito($con); ?></i>
-        </a>
-    </li>
-</ul>
-
-		<a  class="logo">
+			<a  class="logo">
 				<img src="https://i.postimg.cc/nrGQ8SSX/logo.png" alt="Logo Empresa">
-		</a>
+			</a>
+			<ul class="objetos">
+				<li><a onclick="mostrar();" href="../index.html"><i id="carrito" class="fa-solid fa-home"></i></a></li>
+				<li>
+				<?php
+                                        if (session_status() == PHP_SESSION_NONE) {
+											session_start();
+										}
+                                        if(isset($_SESSION['entro']) && $_SESSION['entro']==true ){
+                                    ?>        
+                                        <a href="../sesion/cerrar.php" id="persona" ><i id="persona" class="material-icons">logout</i></a>    
+<?php
+                                                }else{
+?>
+                                                    <a href="../sesion/login.html" id="persona" ><i id="persona" class="fa-solid fa-user user-icon"></i></a>
+                                                    <?php
+                                                }
+                                                
+                                                    ?>
+				</li>
+				<li><a onclick="mostrar();" href="carrito.php"><i id="carrito" class="fa-solid fa-basket-shopping"><?php
+									echo iconoCarrito($con);
+									?></i></a></li>
+				
+			</ul>
 			<div class="container-options">
 				<a href="productos.php"><span>Todos</span></a>
 				<a href="panaderia.php"><span>Panadería</span></a>
@@ -78,9 +71,9 @@
 			</div>
 		</header>
 
-		<div class="producto container mt-5 pt-5">
-			<?php
-			$resultadoProductos = getProductData($con);
+		<div class="container mt-5 pt-5">
+		<?php
+			$resultadoProductos = getProductDataReposteria($con);
 			?>
 
 			<div class="row align-items-center">

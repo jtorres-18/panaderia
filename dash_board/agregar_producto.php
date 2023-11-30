@@ -10,8 +10,14 @@
 	</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<!----css3---->
 	<link rel="stylesheet" href="css/custom.css">
+	<!-- SweetAlert -->
+	<!-- SweetAlert desde jsDelivr -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+
 	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +45,7 @@
 							<a href="listar_productos.php"><i class="material-icons">check</i>Productos</a>
 						</li>
 						<li>
-							<a href="agregar_producto.php"><i class="material-icons">add</i>Agregar</a>
+							<a href="detalles_producto.php"><i class="material-icons">add</i>Agregar</a>
 						</li>
 					</ul>
 				</li>
@@ -52,7 +58,7 @@
 					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
 				</li>
 				<li class="sidebar-list-item">
-					<a href="#"class="bxs-dashboard">
+					<a href="reportes.php"class="bxs-dashboard">
 					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">
@@ -156,7 +162,7 @@
 							</div>
 							<div class="card-content">
 							<div class="container mt-5">
-								<form action="procesar_producto.php" method="post" enctype="multipart/form-data">
+								<form  enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="products_id">Código del Producto:</label>
 										<input type="text" class="form-control" name="codigo" id="codigo" required>
@@ -173,8 +179,15 @@
 									</div>
 									<div class="form-group">
 										<label for="description_Prod">Descripción del Producto:</label>
-										<textarea class="form-control" name="description_Prod" id="decripcion" rows="3"></textarea>
+										<textarea class="form-control" name="description_Prod" id="descripcion" rows="3"></textarea>
 									</div>
+									<div class="form-group">
+										<label for="categoria" class="col-form-label">categoria:</label>
+												<select class="form-select" aria-label="Default select example" id="categoria">
+												<option value="Panaderia">Panaderia</option>
+												<option value="eposteria">Reposteria</option>
+												</select>
+                                    </div>
 									<div class="form-group">
 										<label for="foto1">Foto 1:</label>
 										<div class="custom-file">
@@ -182,7 +195,7 @@
 											<label class="custom-file-label" for="customFile">Seleccionar archivo</label>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-primary" id="btonAgg">Agregar Producto</button>
+									<button onclick="agregar(event);"  type="button" class="btn btn-primary" id="btonAgg">Agregar Producto</button>
 								</form>
 							</div>
 							</div>
@@ -193,12 +206,15 @@
         </div>
 	</div>
     <!-- Optional JavaScript -->
+	
+
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.3.1.slim.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/validar_panel.js"></script>
+	<script src="js/agregar.js"></script>
     <script type="text/javascript">
 		$(document).ready(function () {
 			$('#sidebarCollapse').on('click', function () {
@@ -213,6 +229,6 @@
 		});
     </script>
 	<center><?php include('../mostrar/includes/footer.html') ?></center>
-	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -74,7 +74,7 @@
 					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
 				</li>
 				<li class="sidebar-list-item">
-					<a href="#"class="bxs-dashboard">
+					<a href="reportes.php"class="bxs-dashboard">
 					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">
@@ -112,8 +112,8 @@
 						</li>
 					</ul>
 				</li>
-				<li class="d-lg-none d-md-block d-xl-none d-sm-block">
-					<a href="#"><i class="material-icons">logout</i><span>Cerrar Sesion</span></a>
+				<li class="dropdown nav-item">
+									<a href="../sesion/cerrar.php"><i class="material-icons">logout</i></a>
 				</li>
 			</ul>
 		</nav>
@@ -196,14 +196,13 @@
                                                 INNER JOIN products pd ON dv.id_producto = pd.id
                                                 INNER JOIN ventas vt ON dv.id_venta = vt.id
                                                 WHERE factura LIKE '%$searchQuery%' OR codigo LIKE '%$searchQuery%'
-                                                ORDER BY factura, fecha_hora DESC
-                                                LIMIT 5;";
+                                                ORDER BY factura, fecha_hora DESC;";
                                         // Ejecutar la consulta personalizada
                                         $result = $con->query($sql);
                                         $prevFactura = null; // Variable para rastrear la factura anterior
                                         if ($result->num_rows > 0) {
                                             // Mostrar los datos de la consulta en una tabla
-                                            echo "<table class='table table-striped'>
+                                            echo "<table class='table table-striped table-responsive-sm table-responsive-md table-hover table-bordered'>
                                                     <thead>
                                                         <tr>
                                                             <th>Factura</th>

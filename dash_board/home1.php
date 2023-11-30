@@ -52,7 +52,7 @@
 					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
 				</li>
 				<li class="sidebar-list-item">
-					<a href="#"class="bxs-dashboard">
+					<a href="reportes.php"class="bxs-dashboard">
 					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">

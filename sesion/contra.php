@@ -25,7 +25,7 @@
     </div>
     <div class="formulario-crear">
         <div class="formulario-crear-datos">
-        <h2>recuperar usuario </h2>
+        <h2>recuperar contraseña </h2>
         <form  class="form" id="form-contra">
             <label >
                 <i class='bx bx-lock-alt' ></i>

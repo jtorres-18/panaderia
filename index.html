@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-
-<html lang="es">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>panaderia elohim</title>
-        <script src="https://kit.fontawesome.com/bee51370cb.js" crossorigin="anonymous"></script>
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="index.css">
-        <link rel="website icon" type="png" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
-        <script defer src="http://app.embed.im/snow.js"></script>
-    </head>
-    <body>
-        <div class="principal">
-            <header>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link rel="website icon" type="png" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<link rel='stylesheet' href='https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css'>
+		<title>Elohim</title>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<div class="principal1">
+			<header>
                 <input type="checkbox" id="check">
                 <label for="check" class="J">
                     <i class="fas fa-bars" ></i>
@@ -24,159 +24,213 @@
                     <img src="https://i.postimg.cc/nrGQ8SSX/logo.png" alt="Logo Empresa">
                 </a>
                 <ul>
-                    <li><a onclick="mostrar();" href="#pruebaD" class="botonJj">ENCARGOS</a></li>
-                    <li><a onclick="mostrar();" href="#ofertas"  class="botonJj" >INFORMACION</a></li>
-                    <li><a onclick="mostrar();" href="mostrar/productos.php" class="botonJj">PRODUCTOS</a></li>
-                    <li><a onclick="mostrar();" href="#reservas" class="botonJj">CONTACTO</a></li>
+                    <li><a onclick="mostrar();" href="#informacion" id="h1" class="botonJj" >INFORMACION</a></li>
+                    <li><a onclick="mostrar();" href="mostrar/productos.php" id="h1" class="botonJj">PRODUCTOS</a></li>
+                    <li><a onclick="mostrar();" href="#contacto" id="h1" class="botonJj">CONTACTO</a></li>
+					<li><a onclick="mostrar();" href="sesion/login.html"><i id="persona" class="fa-solid fa-user user-icon"></i></a></li>
                 </ul>
             </header>
-            <div class="infoGeneral">
-                <div class="infoGeneralHijo">
-                    <div class="titulo">
-                        PAN <br>
-                            Y<br>
-                        REPOSTERIA ELOHIM
-                    </div>
-                    <div class="estiloLinea"></div>
-                    <p class="parafoPrincipal">
-                        ¡Hola! Te damos la bienvenidad a una de las mejores panaderías<br>
-                        de Puerto Berrio. Todos nuestros productos están elaborados con mucho<br>
-                        amor para tí y tú familia. ven y disfruta del mejor pan mariquiteño <br>
-                        Esperamos de todo corazón que puedas deleitarte con lo <br>
-                        mejor de la panadería.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-        <div class="segundoNivel" id="elEspacio">
-            <div class="primero" id="pruebaD">
-                <h2>VEN AL BRUCH DE <br>
-                    LOS DOMINGOS
-                </h2>
-                <p>
-                    Tenemos panes con quesos para que  <br>
-                    puedas disfrutarlos con un espumoso café <br>
-                    100% colombiano.
-                </p>
-            </div>
-            <div class="segundo">
-                <h2>DISFRUTA DE UN TÉ<br>
-                    CON TUS AMIG@S
-                </h2>
-                <p>
-                    Tenemos diferentes tipos de té elaborados<br>
-                    naturalmente por nuestros campesinos.<br>
-                    Estamos seguros que te encantará.
-                </p>
-            </div>
-        </div>
-        
-        <div class="cuartoNivel" id="ofertas">
-            <div class="pruebaUno">
-                <div class="pruebaDos" data-aos="fade-down-right">
-                    <div>
-                        <img :src="img/panF.png" alt="pan">
-                    </div>
-                    <div>
-                        <h3>PAN FRANCES</h3>
-                        <p>
-                            Contamos con diferentes tipos de panes<br>
-                            y uno de ellos es el <strong>Frances.</strong><br>
-                            Algunos de sus ingredientes son: levadura en <br>
-                            pasta, trigo y margarina. Su textura es<br>
-                            suave y muy ricaaaa. 
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="pruebaUno">
-                <div class="pruebaDos" data-aos="fade-down-right">
-                    <div>
-                        <img src="img/postre3.png" alt="pan">
-                    </div>
-                    <div>
-                        <h3>POSTRE DE TRES LECHES</h3>
-                        <p>
-                            También contamos con una gran variedad<br>
-                            de postres que son <strong>deliciosos</strong><br>
-                            Uno de las más populares es le de tres leches<br>
-                            Su suavidad la hace única e imperdible.<br>
-                            Es cremosa, muy rica 
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="pruebaUno">
-                <div class="pruebaDos" data-aos="fade-down-right">
-                    <div>
-                        <img src="img/torta.png" alt="pan">
-                    </div>
-                    <div>
-                        <h3>TORTAS SALUDABLES</h3>
-                        <p>
-                            Hay diferentes tipos de tortas, una de<br>
-                            estas se denomina torta <strong>india</strong><br>
-                            Contiene estos dos principales ingredientes:  <br>
-                            Zanahoria y canela. Perfecta para comer<br>
-                            en cualquier momento 
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="pruebaUno">
-                <div class="pruebaDos" data-aos="fade-down-right">
-                    <div>
-                        <img src="img/trigo.png" alt="pan">
-                    </div>
-                    <div>
-                        <h3>INGREDIENTES PAISAS</h3>
-                        <p>
-                            Siempre hemos tenido un objetivo claro<br>
-                            * comprar materia prima <strong>de la</strong><br>
-                            mejor calidad, y elaborada en nuestra ciudad <br>
-                            Así aumentamos el comercio departamental<br>
-                            ,logrando grandes beneficios. 
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="segundoNivel">
-            <div class="segundo">
-                <h2>CONTACTA CON<br>
-                    NOSOTROS
-                </h2>
-                <p>
-                    Si quieres hacer una reserva, tienes algunas sugerencias o<br>
-                    simplemente quieres saludar, escribenos a:<br>
-                    <a href="#" class="correo">atencionIsis@bakery.com</a>
-                </p>
-            </div>
-            <div class="primero">
-                <h2>¿SABES DÓNDE<br>
-                    ESTAMOS?
-                </h2>
-                <p>
-                    CRA 5 #49-00<br>
-                    Puerto Berrio Antioquia<br>
-                    Hecho en Colombia
-                </p>
-            </div>
-        </div>  
-        <div class="footer" id="reservas">
+			<section class="content-banner">
+				<h2>Panaderia <br />Y Reposteria</h2>
+				<h1>¡Hola! Te damos la bienvenida a una de las mejores panaderías<br>
+					de Puerto Berrio. Todos nuestros productos están elaborados con mucho<br>
+					amor para ti y tu familia. Ven y disfruta del mejor pan mariquiteño <br>
+					Esperamos de todo corazón que puedas deleitarte con lo <br>
+					mejor de la panadería.
+				</h1>
+			</section>
+		</div>
+		<main class="main-content">
+			<section class="container container-features"></section>
+			<section class="container top-products">
+				<h1 class="heading-1">Nuestros Productos</h1>
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://i.postimg.cc/xdVrHn4y/Imagen-de-Whats-App-2023-10-16-a-las-13-44-27-6475b3e9.jpg" alt="Cafe Irish" />
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>postre estrella</h3>
+							<p class="price">$5.000 <span>$6.000</span></p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="https://i.postimg.cc/rmqvngcD/Imagen-de-Whats-App-2023-10-16-a-las-13-44-29-6e6178f5.jpg"
+								alt="Cafe incafe-ingles.jpg"
+							/>
+							
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>postre de fresa</h3>
+							<p class="price">$6.000 <span>$7.000</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="https://i.postimg.cc/h42qwFXc/Imagen-de-Whats-App-2023-10-16-a-las-13-44-27-6c1ef703.jpg"
+								alt="Cafe Australiano"
+							/>
+							
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>postre corazon</h3>
+							
+							<p class="price">$4.000</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="https://i.postimg.cc/xCRSnhgG/Imagen-de-Whats-App-2023-10-16-a-las-13-43-59-5c8dc29c.jpg" alt="Cafe Helado" />
+							
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>pan agridulce</h3>
+							
+							<p class="price">$3.500</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="cuadrar">
+				<a href="mostrar/productos.php" class="btn-read-more">Ver mas productos</a>
+			</div>
+			<section id="informacion" class="container-blogs">
+				<div class="contenedor-formulario register">
+					<div class="informacion"> 
+						<div class="info-datos">
+							<img src="https://i.postimg.cc/6ptyV853/farhan-shaikh-r-VOIf6tc5-DU-unsplash.jpg" class="Imagenes1">
+						</div>
+					</div>
+					<div class="formulario-crear">
+						<div class="formulario-crear-datos">
+							<div class="content-blog">
+								<h3>VEN AL BRUCH DE LOS DOMINGOS</h3>
+								<p>
+									Tenemos panes con quesos para que  <br>
+									puedas disfrutarlos con un espumoso café <br>
+									100% colombiano.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="container-blogs2">
+				<div class="contenedor-formulario2 register">
+					<div class="formulario-crear2">
+						<div class="formulario-crear-datos">
+							<div class="content-blog">
+								<h3>DISFRUTA DE UN TÉ CON TUS AMIG@S</h3>
+								<p>
+									Tenemos diferentes tipos de té elaborados<br>
+									naturalmente por nuestros campesinos.<br>
+									Estamos seguros que te encantará.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="informacion2"> 
+						<div class="info-datos2">
+							<img src="https://i.postimg.cc/qvJRH5Fw/conor-brown-sqk-Xyyj4-Wd-E-unsplash.jpg" class="Imagenes2">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="contacto" class="container-blogs">
+				<div class="contenedor-formulario register">
+					<div class="informacion"> 
+						<div class="info-datos">
+							<img src="https://i.postimg.cc/WzSfxzCs/bread-4183225-1280.jpg" class="Imagenes1">
+						</div>
+					</div>
+					<div class="formulario-crear">
+						<div class="formulario-crear-datos">
+							<div class="content-blog">
+								<h3>CONTACTA CON NOSOTROS</h3>
+								<p>
+									Si quieres hacer una reserva, tienes algunas sugerencias o<br>
+									simplemente quieres saludar, escribenos a:<br>
+									<a href="#" class="correo">elohimabmin23@gmail.com</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="container-blogs2">
+				<div class="contenedor-formulario2 register">
+					<div class="formulario-crear2">
+						<div class="formulario-crear-datos">
+							<div class="content-blog">
+								<h3>¿SABES DÓNDE ESTAMOS?</h3>
+								<p>
+									CRA 5 #49-00<br>
+									Puerto Berrio Antioquia<br>
+									Hecho en Colombia
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="informacion2"> 
+						<div class="info-datos2">
+							<img src="https://i.postimg.cc/q71Fmjhz/bread-4077812-1920.jpg" class="Imagenes2">
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<div class="footer" id="reservas">
             <div class="iconos">
                 <center>
-                    <a href="https://www.instagram.com/" target="_blank">
+                    <a href="https://www.instagram.com/panaderia_elohim23/" target="_blank">
                         <i class='bx bxl-instagram' ></i>
                     </a>
-                    <a href="https://www.facebook.com/" target="_blank">
+                    <a href="https://www.facebook.com/profile.php?id=61552976203608" target="_blank">
                         <i class='bx bxl-facebook' ></i>
                     </a>
                 </center>
             </div>
         </div>
-        <button id="scroll-to-top-btn"><i class='bx bx-chevrons-up'></i></button>
+		<script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+		></script>
+	 <button id="scroll-to-top-btn"><i class='bx bx-chevrons-up'></i></button>
         <script defer>
         function mostrar() {
             document.getElementById("check").checked = false
@@ -198,5 +252,5 @@
         });
 
     </script>
-    </body>
+	</body>
 </html>

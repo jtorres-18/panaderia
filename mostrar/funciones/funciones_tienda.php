@@ -19,7 +19,8 @@ function getProductData($con)
         INNER JOIN
             fotoproducts AS f
         ON 
-            p.id = f.products_id;
+            p.id = f.products_id
+            where p.estado = 1;
     ");
     $queryProducts = mysqli_query($con, $sqlProducts);
 
@@ -29,6 +30,69 @@ function getProductData($con)
     // Si todo está bien, devuelves el resultado del query
     return $queryProducts;
 }
+
+/**
+ * Funcion para obtener  los productos de categoria panaderia
+ * de mi tienda
+ */
+function getProductDataPanaderia($con)
+{
+    $sqlProductsPanaderia = ("
+        SELECT 
+            p.id AS prodId,
+            p.nameProd,
+            p.precio,
+            f.foto1
+        FROM 
+            products AS p
+        INNER JOIN
+            fotoproducts AS f
+        ON 
+            p.id = f.products_id
+        WHERE
+            p.categoria = 1
+            and p.estado = 1;
+    ");
+    $queryProductsPanaderia = mysqli_query($con, $sqlProductsPanaderia);
+
+    if (!$queryProductsPanaderia) {
+        return false;
+    }
+    // Si todo está bien, devuelves el resultado del query
+    return $queryProductsPanaderia;
+}
+/**
+ * Funcion para obtener  los productos de categoria panaderia
+ * de mi tienda
+ */
+function getProductDataReposteria($con)
+{
+    $sqlProductsReposteria = ("
+        SELECT 
+            p.id AS prodId,
+            p.nameProd,
+            p.precio,
+            f.foto1
+        FROM 
+            products AS p
+        INNER JOIN
+            fotoproducts AS f
+        ON 
+            p.id = f.products_id
+        WHERE
+            p.categoria = 2
+            and p.estado = 1;
+    ");
+    $queryProductsReposteria = mysqli_query($con, $sqlProductsReposteria);
+
+    if (!$queryProductsReposteria ) {
+        return false;
+    }
+    // Si todo está bien, devuelves el resultado del query
+    return $queryProductsReposteria ;
+}
+
+
 
 /**
  * Detalles del producto seleccionado

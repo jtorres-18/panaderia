@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Si hay datos entonces retornamos algo
         $jsonData['success'] = 1;
         $jsonData['message'] = '<p style="color:red;">Ya existe ese código <strong>(' . $codigo . ')<strong></p>';
+        // Agregamos el código consultado al arreglo de respuesta
+        $jsonData['codigo'] = $codigo;
     }
 
     // Cerramos la consulta preparada

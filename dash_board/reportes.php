@@ -1,9 +1,3 @@
-<?php
-	if (session_status() == PHP_SESSION_NONE) {
-		session_start();
-	}
-	if(isset($_SESSION['entro']) && $_SESSION['entro']==true ){
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<link rel="website icon" type="png" href="https://i.postimg.cc/nrGQ8SSX/logo.png">
-	<title>Admin dashboard</title>
+	<title>cms dashboard
+	</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!----css3---->
@@ -23,9 +18,26 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 	<!--google material icon-->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-	
+
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+    <style>
+    #mas_vendido {
+    width: 100%;
+    height: 500px;
+    }
+
+    #ventas_semana {
+    width: 100%;
+    height: 500px;
+    }
+    </style>
 </head>
 <body>
+    
 	<div class="wrapper">
 		<div class="body-overlay"></div>
 		<!-- Sidebar  -->
@@ -58,7 +70,7 @@
 					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
 				</li>
 				<li class="sidebar-list-item">
-					<a href="reportes.php"class="bxs-dashboard">
+					<a href="#"class="bxs-dashboard">
 					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">
@@ -83,7 +95,7 @@
 				</div>
 				<li class="dropdown">
 					<a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">apps</i><span>Herramientas</span></a>
+						<i class="material-icons">apps</i><span>widgets</span></a>
 					<ul class="collapse list-unstyled menu" id="pageSubmenu2">
 						<li>
 							<a href="#">Page 1</a>
@@ -97,7 +109,7 @@
 					</ul>
 				</li>
 				<li class="d-lg-none d-md-block d-xl-none d-sm-block">
-					<a href="../sesion/cerrar.php"><i class="material-icons">logout</i><span>Cerrar Sesion</span></a>
+					<a href="#"><i class="material-icons">logout</i><span>Cerrar Sesion</span></a>
 				</li>
 			</ul>
 		</nav>
@@ -138,7 +150,10 @@
 									</ul>
 								</li>
                                 <li class="dropdown nav-item">
+									<li class="dropdown nav-item">
 									<a href="../sesion/cerrar.php"><i class="material-icons">logout</i></a>
+								</li>
+									</ul>
 								</li>
 							</ul>
 						</div>
@@ -146,187 +161,32 @@
 				</nav>
 			</div>
 			<div class="main-content">
-				<div class="row">
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card card-stats">
-							<div class="card-header">
-								<div class="icon icon-warning">
-									<span class="material-icons">equalizer</span>
-								</div>
-							</div>
-							<div class="card-content">
-								<p class="category"><strong>Ventas</strong></p>
-								<h3 class="card-title">70,340</h3>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									<i class="material-icons text-info">info</i>
-									<a href="buscar_ventas.php">informe detallado</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card card-stats">
-							<div class="card-header">
-								<div class="icon icon-rose">
-									<span class="material-icons">shopping_cart</span>
-
-								</div>
-							</div>
-							<div class="card-content">
-								<p class="category"><strong>Orders</strong></p>
-								<h3 class="card-title">102</h3>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									<i class="material-icons">local_offer</i> Product-wise sales
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card card-stats">
-							<div class="card-header">
-								<div class="icon icon-success">
-									<span class="material-icons">
-										attach_money
-									</span>
-
-								</div>
-							</div>
-							<div class="card-content">
-								<p class="category"><strong>Ganacias</strong></p>
-								<h3 class="card-title">$2310</h3>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									<i class="material-icons">date_range</i> Ventas Semanales
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6">
-						<div class="card card-stats">
-							<div class="card-header">
-								<div class="icon icon-info">
-									<span class="material-icons">
-										follow_the_signs
-									</span>
-								</div>
-							</div>
-							<div class="card-content">
-								<p class="category"><strong>Followers</strong></p>
-								<h3 class="card-title">+245</h3>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									<i class="material-icons">update</i> Just Updated
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row ">
-					<div class="col-lg-7 col-md-12">
+            <div class="row ">
+					<div class="col-lg-6 col-md-12">
 						<div class="card" style="min-height: 485px">
-							<div class="card-header card-header-text">
-								<h4 class="card-title">Ultimos pedidos</h4>
-								<p class="category">Ultimos pedidos | <span id="currentDate"></span>
-								</p>
-								<script>
-									const date = new Date();
-									const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-									const currentDate = date.toLocaleDateString('es-ES', options);
-		
-									document.getElementById("currentDate").innerText = currentDate;
-								</script>
-							</div>
-							<div class="card-content table-responsive">
-								<table class="table table-hover">
-									<thead class="text-primary">
-										<tr>
-											<th>FACTURA</th>
-											<th>NOMBRE</th>
-											<th>VALOR TOTAL</th>
-											<th>METODO PAGO</th>
-										</tr>
-									</thead>
-									<?php
-									include("../mostrar/config/config.php");
-									$sql = "SELECT v.factura, v.total_venta, v.metodo_pago, v.id_cliente, us.nombre
-											FROM ventas v
-											JOIN usuarios us ON v.id_cliente = us.id
-											LIMIT 5";
-									$result = $con->query($sql);
-									if ($result->num_rows > 0) {
-										while($row = $result->fetch_assoc()) {
-											echo "<tr>
-													<td>" . $row["factura"]. "</td>
-													<td>" . $row["nombre"]. "</td>
-													<td>" . $row["total_venta"]. "</td>
-													<td>" . $row["metodo_pago"]. "</td>
-												</tr>";
-										}
-									} else {
-										echo "<tr><td colspan='4'>0 resultados</td></tr>";
-									}
-									echo "</tbody></table>";
-									// Cerrar conexión
-									$con->close();
-									?>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-5 col-md-12">
-						<div class="card" style="min-height: 485px">
-							<div class="card-header card-header-text">
-								<h4 class="card-title">Activities</h4>
-							</div>
 							<div class="card-content">
-								<div class="streamline">
-									<div class="sl-item sl-primary">
-										<div class="sl-content">
-											<small class="text-muted">5 mins ago</small>
-											<p>Williams has just joined Project X</p>
-										</div>
-									</div>
-									<div class="sl-item sl-danger">
-										<div class="sl-content">
-											<small class="text-muted">25 mins ago</small>
-											<p>Jane has sent a request for access to the project folder</p>
-										</div>
-									</div>
-									<div class="sl-item sl-success">
-										<div class="sl-content">
-											<small class="text-muted">40 mins ago</small>
-											<p>Kate added you to her team</p>
-										</div>
-									</div>
-									<div class="sl-item">
-										<div class="sl-content">
-											<small class="text-muted">45 minutes ago</small>
-											<p>John has finished his task</p>
-										</div>
-									</div>
-									<div class="sl-item sl-warning">
-										<div class="sl-content">
-											<small class="text-muted">55 mins ago</small>
-											<p>Jim shared a folder with you</p>
-										</div>
-									</div>
-									<div class="sl-item">
-										<div class="sl-content">
-											<small class="text-muted">60 minutes ago</small>
-											<p>John has finished his task</p>
-										</div>
-									</div>
-								</div>
+                            <h4 class="card-title">numero de ventas por dia</h4>
+                            <div id="ventas_semana"></div>
+
 							</div>
 						</div>
 					</div>
+
+
+
+					<div class="col-lg-6 col-md-12">
+						<div class="card" style="min-height: 485px">
+							<div class="card-content">
+							<h4 class="card-title">Top 5 productos mas vendidos</h4>
+								<div  id="mas_vendido"></div>
+							</div>
+						</div>
+					</div>
+
 				</div>
+            </div>
+        </div>
+	</div>
             </div>
         </div>
 	</div>
@@ -336,6 +196,7 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/reportes.js"></script>
     <script type="text/javascript">
 		$(document).ready(function () {
 			$('#sidebarCollapse').on('click', function () {
@@ -346,15 +207,9 @@
 			$('.more-button,.body-overlay').on('click', function () {
 				$('#sidebar,.body-overlay').toggleClass('show-nav');
 			});
+
 		});
     </script>
 	<center><?php include('../mostrar/includes/footer.html') ?></center>
 </body>
 </html>
-<?php
-	}else{
-?>
-		<script>  window.location.href = "../sesion/login.html" ; </script>
-		<?php
-	}
-?>

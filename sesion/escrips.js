@@ -50,6 +50,7 @@ function validarEmail(email) {
 }
 
 
+
 function registrarse(e){
     e.preventDefault ();
     const nombre= document.getElementById("nombre").value
@@ -79,11 +80,6 @@ function registrarse(e){
                         timer: 2500
                 })
                 
-                document.getElementById("form-regitro").reset();
-
-
-
-
                 }
                 if(respuesta==2){
                 Swal.fire({
@@ -129,8 +125,7 @@ function registrarse(e){
                     timer: 3000
                 })
     }
-}   
-
+}
 
 
 function logueo(e){
@@ -280,7 +275,6 @@ if(documento!= "" && pass!= ""){
     }
 }
 
-
 function nueva_contra(e){
     e.preventDefault ();
     const id= document.getElementById("id").value
@@ -301,7 +295,7 @@ function nueva_contra(e){
                         showConfirmButton: false,
                         timer: 2500
                 })
-                
+                 window.location.href = 'login.html';
                 }    
         },
     })
@@ -315,6 +309,7 @@ function nueva_contra(e){
     }
 }
 
+
 function recuperar_pass(e){
     e.preventDefault ();
     const email= document.getElementById("correo").value
@@ -327,8 +322,9 @@ if(email!= ""){
             correo: email,
             },
             success: function(respuesta) {
-                if(respuesta!=2){
-                    const data =JSON.parse(respuesta);
+                const data =JSON.parse(respuesta);
+                if(data!=2){
+                    
                     enviar_correo(data.correo, `<!DOCTYPE html>
                     <html>
                     <head>
@@ -372,7 +368,7 @@ if(email!= ""){
                             <div class="content">
                                 <p>¡Hola ${data.nombre}!</p>
                                 <p>Recibes este correo porque solicitaste restablecer tu contraseña. Para continuar con el proceso, haz clic en el siguiente enlace:</p>
-                                <center><p><a href="http://localhost/elohim/sesion/contra.php?id=${data.id}" class="button">Restablecer Contraseña</a></p></center>
+                                <center><p><a href="https://www.elohim.com.co/sesion/contra.php?id=${data.id}" class="button">Restablecer Contraseña</a></p></center>
                                 <p>Si no solicitaste restablecer tu contraseña, puedes ignorar este mensaje.</p>
                                 <p>Por favor, ten en cuenta que este enlace es válido por un tiempo limitado.</p>
                                 <p>Si tienes algún problema o pregunta, no dudes en ponerte en contacto con nuestro soporte.</p>
@@ -396,7 +392,6 @@ if(email!= ""){
                         window.location.href = 'login.html';
                         }
                     });
-                    
                     }
                     if(respuesta==2){
                     Swal.fire({

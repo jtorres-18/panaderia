@@ -10,7 +10,11 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!----css3---->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<link rel="stylesheet" href="css/custom.css">
+	<script src="js/editar_elimar.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +22,7 @@
 	<!--google material icon-->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <style>
+		
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -99,7 +104,7 @@
 					<i class="material-icons">shopping_cart</i><span> Ventas</span></a>
 				</li>
 				<li class="sidebar-list-item">
-					<a href="#"class="bxs-dashboard">
+					<a href="reportes.php"class="bxs-dashboard">
 					<i class="material-icons">poll</i><span> Reportes</span></a>
 				</li>
 				<div class="small-screen navbar-display">
@@ -197,43 +202,62 @@
 								
 							</div>
 							<div class="card-content">
-								<?php
-								include("../mostrar/config/config.php");
-								$query = "SELECT products.codigo, products.nameProd, products.precio, products.description_Prod, fotoproducts.foto1
-										FROM products
-										JOIN fotoproducts ON products.id = fotoproducts.products_id";
-								$result = $con->query($query);
-								if ($result->num_rows > 0) {
-									// Imprimir la tabla
-									echo '<table border="1">
-											<tr>
-												<th>Código</th>
-												<th>Nombre del Producto</th>
-												<th>Precio</th>
-												<th>Descripción</th>
-												<th>Foto</th>
-											</tr>';
-									// Imprimir los resultados en filas de la tabla
-									while ($row = $result->fetch_assoc()) {
-										echo '<tr>';
-										echo '<td>' . $row["codigo"] . '</td>';
-										echo '<td>' . $row["nameProd"] . '</td>';
-										echo '<td>' . $row["precio"] . '</td>';
-										echo '<td>' . $row["description_Prod"] . '</td>';
-										
-										// Mostrar la imagen en una celda de la tabla
-										$imagePath = "../dash_board/img/" . $row["foto1"];
-										echo '<td><center><img src="' . $imagePath . '" alt="Foto del producto" style="max-width: 100px; max-height: 100px;"></center></td>';
-										
-										echo '</tr>';
-									}
-									echo '</table>';
-								} else {
-									echo "No se encontraron resultados.";
-								}
+							<?php
+include("../mostrar/config/config.php");
+$query = "SELECT products.id, products.codigo, products.nameProd, products.precio, products.description_Prod, products.estado, fotoproducts.foto1
+        FROM products
+        JOIN fotoproducts ON products.id = fotoproducts.products_id";
+$result = $con->query($query);
+if ($result->num_rows > 0) {
+    echo '<table class="table table-responsive-sm table-responsive-md table-hover table-bordered " >
+            <tr>
+                <th>Código</th>
+                <th>Nombre del Producto</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Foto</th>
+            </tr>';
 
-                                $con->close();
-                                ?>
+    // Imprimir los resultados en filas de la tabla
+    while ($row = $result->fetch_assoc()) {
+        if ($row["estado"] == 1) {
+            $estado = "activo";
+        } else {
+            $estado = "desactivo";
+        }
+
+        echo '<tr>';
+        echo '<td>' . $row["codigo"] . '</td>';
+        echo '<td>' . $row["nameProd"] . '</td>';
+        echo '<td>' . $row["precio"] . '</td>';
+        echo '<td>' . $row["description_Prod"] . '</td>';
+        echo '<td>' . $estado . '</td>';
+        // Mostrar la imagen en una celda de la tabla
+        $imagePath = "../dash_board/img/" . $row["foto1"];
+        echo '<td><center><img src="' . $imagePath . '" alt="Foto del producto" style="max-width: 100px; max-height: 100px;"></center></td>';
+
+        echo '<td>
+            <center>
+            <button onclick="datos_producto(\'' . $row["id"] . '\')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="material-icons">edit</i> <!-- Icono de lápiz --></button>
+        </center>
+        <center>
+            <button style="margin-top: 10px;" type="button" class="btn btn-danger" onclick="eliminarProducto(\'' . $row["codigo"] . '\')">
+                <i class="material-icons">delete</i> <!-- Icono de papelera -->
+            </button>
+        </center>
+            </td>';
+
+        echo '</tr>';
+    }
+    echo '</table>';
+} else {
+    echo "No se encontraron resultados.";
+}
+
+$con->close();
+?>
+
 							</div>
 						</div>
 					</div>
@@ -271,6 +295,69 @@
 		});
 	</script>
     <center><?php include('../mostrar/includes/footer.html') ?></center>
+	
 
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">editar producto</h5>
+      </div>
+      <div class="modal-body">
+	  <form action="procesar_producto.php" method="post" enctype="multipart/form-data" id="productoForm">
+                        <div class="form-group">
+                            <label for="codigo">Código del Producto:</label>
+                            <input type="text" class="form-control" name="codigo" id="codigo" required>
+							<input type="hidden" class="form-control" name="codigo" id="codigo2" required>
+                            <div id="respuesta"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nameProd">Nombre del Producto:</label>
+                            <input type="text" class="form-control" name="nameProd" id="nameProd" required>
+                            <div id="respuesta2"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio:</label>
+                            <input type="number" class="form-control" name="precio" id="precio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description_Prod">Descripción del Producto:</label>
+                            <textarea class="form-control" name="description_Prod" id="descripcion" rows="3"></textarea>
+                        </div>
+						<div class="form-group">
+                                    <label for="categoria" class="col-form-label">categoria:</label>
+                                            <select class="form-select" aria-label="Default select example" id="categoria">
+                                            <option value="Panaderia">Panaderia</option>
+                                            <option value="eposteria">Reposteria</option>
+                                            </select>
+                                        </div>
+						<div class="form-group">
+                                    <label for="estado" class="col-form-label">estado:</label>
+                                            <select class="form-select" aria-label="Default select example" id="estado">
+                                            <option value="activo">activo</option>
+                                            <option value="desactivo">desactivo</option>
+                                            </select>
+                                        </div>
+                        <div class="form-group">
+                            <label for="foto1">Foto 1:</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile" name="foto1" accept="image/*" required>
+                                <label class="custom-file-label" for="customFile">Seleccionar archivo</label>
+                            </div>
+                        </div>
+						<input type="hidden" id="id" required>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="btonAgg" onclick="editarProducto(event)" type="button" class="btn btn-primary">guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

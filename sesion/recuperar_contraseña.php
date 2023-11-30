@@ -15,24 +15,12 @@ try {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         echo json_encode($usuario);
     } else {
-        echo"2";
+        echo "2";
     }
-
-    
-
 } catch (PDOException $e) {
     echo "Error al iniciar sesión: " . $e->getMessage();
 }
 
 // Cerrar la conexión PDO correctamente
 $conn = null;
-
-
-
-
-?>
-
-
-
-
 ?>
